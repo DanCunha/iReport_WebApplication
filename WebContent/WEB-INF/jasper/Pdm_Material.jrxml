@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Pdm_Material" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="620d6c25-6cae-46b4-939b-e1f5beeff1d7">
+	<property name="ireport.zoom" value="4.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="idMaterial" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[if ($P{idMaterial} is null)
+	begin
+		select * from T001_MATERIAL
+	end
+else
+	begin
+		select * from T001_MATERIAL where T001ID_MATERIAL = $P{idMaterial}
+	end]]>
+	</queryString>
+	<field name="T001ID_MATERIAL" class="java.lang.Integer"/>
+	<field name="T011ID_MEASURE_UNIT" class="java.lang.Integer"/>
+	<field name="T005ID_MATERIAL_STATUS" class="java.lang.Integer"/>
+	<field name="T004ID_MATERIAL_TYPE" class="java.lang.Integer"/>
+	<field name="T004ID_MATERIAL_CLASS" class="java.lang.Integer"/>
+	<field name="T052ID_HEAD_BOM_FLAG" class="java.lang.Integer"/>
+	<field name="T052ID_TRACKING_FLAG" class="java.lang.Integer"/>
+	<field name="T001NR_MATERIAL_NUMBER" class="java.lang.String"/>
+	<field name="T001NM_MATERIAL_NAME" class="java.lang.String"/>
+	<field name="T001NM_MATERIAL_ALIAS" class="java.lang.String"/>
+	<field name="T001DS_MATERIAL_DESCRIPTION" class="java.lang.String"/>
+	<field name="T001NR_PARTNUMBER" class="java.lang.String"/>
+	<field name="T001NR_DOCUMENT_SAP" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="38">
+			<frame>
+				<reportElement uuid="040fa5e1-b752-43d3-bfa7-29f4f721c6d6" mode="Opaque" x="-20" y="-20" width="595" height="56" backcolor="#006699"/>
+				<staticText>
+					<reportElement uuid="c9ac94c3-a481-4e8d-893c-2b277204f9e6" x="20" y="9" width="234" height="43" forecolor="#FFFFFF"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[PDM]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="97066f5d-5414-4f6a-a4a7-575f2b52f14c" x="395" y="29" width="180" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Relatório de Material]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="6"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<staticText>
+				<reportElement uuid="17e96912-2fa5-48b1-924b-68b6e8f9004f" mode="Opaque" x="0" y="0" width="44" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="19f11446-6227-4cc2-930e-b7bf2ce76265" mode="Opaque" x="45" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NUMBER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="66b4332b-7579-4c38-8887-39986cdf21bd" mode="Opaque" x="137" y="0" width="184" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="21812d15-c6d1-4de6-8242-54b78c866940" mode="Opaque" x="321" y="0" width="141" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIPTION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="871f8ff1-d0dd-4692-a000-4c4e0463182d" mode="Opaque" x="462" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PARTNUMBER]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement uuid="8413d349-483f-4224-9350-7a5669dd60e4" positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="18c31fb0-15c2-46a0-9710-ca60618ac06e" x="0" y="0" width="92" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{T001ID_MATERIAL}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="b72f68af-0de0-45de-aee4-e00450b98dac" x="45" y="0" width="92" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{T001NR_MATERIAL_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5cadbb63-995b-4b34-894a-7044e78d90a1" x="137" y="0" width="184" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{T001NM_MATERIAL_NAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="34e71e31-3fcb-475f-8d39-003479238536" x="321" y="0" width="141" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{T001DS_MATERIAL_DESCRIPTION}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="80f2901c-e738-47ce-8664-b3887bd53faf" x="462" y="0" width="92" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{T001NR_PARTNUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement uuid="430ebce9-f36c-471c-8b6b-e14d9a6a53c5" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="03e05c97-bfb5-417e-94e2-cc6201e5096a" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="69793108-bab9-4dca-a112-42feaeda38ab" x="0" y="4" width="100" height="13"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
