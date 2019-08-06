@@ -12,10 +12,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.caelum.relatorio.ConnectionFactory;
 import br.com.caelum.relatorio.ConnectionFactoryMsSqlServer;
 import br.com.caelum.relatorio.gerador.GeradorRelatorio;
-
+/**
+ * 
+ * @author daniel.cunha
+ *
+ */
 @WebServlet("/material")
 public class RelatorioMaterial extends HttpServlet{
 	
@@ -29,6 +32,7 @@ public class RelatorioMaterial extends HttpServlet{
             Map<String, Object> parametros = new HashMap<String, Object>();
             
             String idMaterial = request.getParameter("id_material");
+            System.out.println("Generate Report - param: " + idMaterial);
             
             if(idMaterial != "") {
             	parametros.put("idMaterial", Integer.parseInt(idMaterial));	
